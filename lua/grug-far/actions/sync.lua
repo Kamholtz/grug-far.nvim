@@ -24,6 +24,21 @@ local function writeChangedFile(params)
     end
 
     local lines = vim.split(contents or '', utils.eol)
+    local lines_new = vim.split(contents or '', '\n')
+
+    print('here')
+    if #lines == #lines_new then
+      for i, line in pairs(lines) do
+        local line_new = lines_new[i]
+        if line ~= lines_new[i] then
+          print('grug-far: difference in lines:')
+          print('grug-far: line: ' .. line)
+          print('grug-far: line_new: ' .. line_new)
+        end
+      end
+    else
+      print('grug-far: difference in line count')
+    end
 
     local changedLines = changedFile.changedLines
     for i = 1, #changedLines do
