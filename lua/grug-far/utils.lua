@@ -296,6 +296,6 @@ function M.abortTasks(context)
   return abortedAny
 end
 
-M.eol = is_win and '\r\n' or '\n'
+M.eol = '\n'
 
 return M
